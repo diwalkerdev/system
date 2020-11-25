@@ -1,0 +1,3 @@
+[submodule "nord-gnome-terminal"]
+	path = nord-gnome-terminal
+	url = https://github.com/arcticicestudio/nord-gnome-terminal.git
