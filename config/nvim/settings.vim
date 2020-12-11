@@ -5,6 +5,7 @@ set encoding=UTF-8
 nnoremap <SPACE> <Nop>    
 let mapleader=" "
 
+set lazyredraw
 set number relativenumber
 set tabstop=4 
 set shiftwidth=4 
@@ -22,13 +23,9 @@ set nowritebackup           "This is recommended by coc
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 let g:python3_host_prog='/usr/bin/python'
 
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
 nnoremap <C-p> :FZF<Cr>
-imap <C-c> <Esc>
-
+inoremap <C-c> <Esc>
+inoremap <C-l> <Del>
 
 " TAB in general mode will move to text buffer
 nnoremap <TAB> :bnext<CR>
