@@ -1,12 +1,12 @@
-colorscheme nord
-set encoding=UTF-8
+"colorscheme nord
+syntax off
+"set encoding=UTF-8
 
 "Make sure space doen't have any mappings before assigning to leader.
 nnoremap <SPACE> <Nop>    
 let mapleader=" "
 
-set lazyredraw
-set number relativenumber
+" set number relativenumber
 set tabstop=4 
 set shiftwidth=4 
 set expandtab
@@ -14,14 +14,15 @@ set expandtab
 set laststatus=2
 set noshowmode
 set hidden                  "Required for operations modifying multiple buffers like rename.
+
 set nobackup                "This is recommended by coc
 set nowritebackup           "This is recommended by coc
 
 
 "set clipboard=unnamedplus "Copy and paste from vim and everything else.
 
-au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
-let g:python3_host_prog='/usr/bin/python'
+"au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+"let g:python3_host_prog='/usr/bin/python'
 
 nnoremap <C-p> :FZF<Cr>
 inoremap <C-c> <Esc>

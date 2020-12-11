@@ -12,8 +12,11 @@ endfunction
 
 " Mode highlighting
 " Note, au is auto command.
-au InsertEnter * hi statusline guifg=black guibg=#d7afff ctermfg=0 ctermbg=5
-au InsertLeave * hi statusline guifg=black guibg=#8fbfdc ctermfg=0 ctermbg=2
+augroup statusline
+    autocmd!
+    au InsertEnter * hi statusline guifg=black guibg=#d7afff ctermfg=0 ctermbg=5
+    au InsertLeave * hi statusline guifg=black guibg=#8fbfdc ctermfg=0 ctermbg=2
+augroup end
 
 " Status Line Custom
 let g:currentmode={
@@ -47,7 +50,7 @@ hi User5 ctermfg=11 ctermbg=0 guibg=#b48ead guifg=#4e4e4e
 
 set statusline=
 set statusline+=%0*\ %n\                                 " Buffer number
-set statusline+=%5*%{StatusLineGit()}
+"set statusline+=%5*%{StatusLineGit()}
 set statusline+=%1*\ %<%F%m%r%h%w\                       " File path, modified, readonly, helpfile, preview
 set statusline+=%3*│                                     " Separator
 set statusline+=%2*                                 " FileType

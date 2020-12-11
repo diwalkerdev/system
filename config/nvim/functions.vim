@@ -3,5 +3,9 @@ function! Formatonsave()
   py3f /usr/share/clang/clang-format.py
 endfunction
 
-autocmd BufWritePre *.h,*.hpp,*.c,*.cc,*.cpp call Formatonsave()
+augroup formatting
+    autocmd!
+    autocmd BufWritePre *.h,*.hpp,*.c,*.cc,*.cpp call Formatonsave()
+augroup end
+
 
