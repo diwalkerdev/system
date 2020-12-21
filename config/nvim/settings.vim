@@ -1,5 +1,5 @@
-"colorscheme nord
-syntax off
+colorscheme nord
+"syntax off
 "set encoding=UTF-8
 
 "Make sure space doen't have any mappings before assigning to leader.
