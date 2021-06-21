@@ -1,6 +1,6 @@
 @ECHO OFF
 
-set SCRIPT_DIR="C:\Users\dwalk\.system\scripts"
+set SCRIPT_DIR=%~dp0
 
 IF "%1" == "" goto list
 IF "%1" == "-s" goto save

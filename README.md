@@ -1,5 +1,5 @@
-# Scripts
-Useful scripts.
+# System
+A collection of useful scripts and tools that I like to use.
 
 ## pathmod
 Simplifies manipulating the Linux PATH variable.
@@ -25,4 +25,28 @@ $ /opt/some-program/bin:/sbin:/bin
 Requires [click](http://click.pocoo.org/5/).
 ```
 $ pip install --user click
+```
+
+## jumpdir
+Makes navigation simpler.
+
+```
+cd Projects/ACoolProject       # Go to a directory
+jd -s                          # Save the directory, prompts for binding...
+
+Add binding for C:\Users\UserX\Projects\ACoolProject
+>> a
+Current bindings:
+ (a) = C:\Users\UserX\Projects\ACoolProject
+
+```
+
+Then jump to that directory at any time:
+```
+jd a
+```
+
+Get help:
+```
+jd -h
 ```
