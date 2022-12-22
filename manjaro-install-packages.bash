@@ -9,3 +9,7 @@ sudo pacman -S make
 sudo pacman -S neovim
 sudo pacman -S python-pip
 sudo pacman -S python-poetry
+sudo pacman -S syncthing
+
+systemctl --user enable syncthing.service
+systemctl --user start syncthing.service
