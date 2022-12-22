@@ -65,6 +65,7 @@ def add_binding(jumpdirs, key, path):
 
 def remove_binding(jumdirs, key):
     del jumdirs[key]
+    show_jump_dirs(jumdirs)
 
 
 def save_jump_directories(jumpdirs):
