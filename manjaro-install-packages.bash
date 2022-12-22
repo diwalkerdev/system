@@ -11,5 +11,8 @@ sudo pacman -S python-pip
 sudo pacman -S python-poetry
 sudo pacman -S syncthing
 
+# Toolchain for arm cortex-m3 development:
+# sudo pacman -S qemu arm-none-eabi-gcc arm-none-eabi-gdb
+
 systemctl --user enable syncthing.service
 systemctl --user start syncthing.service
