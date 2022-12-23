@@ -1,6 +1,7 @@
-@echo "For Graphics Drivers install from the Manjaro Settings Manager."
-
 sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
+
+# Install nonfree graphics drivers.
+sudo mhwd -a pci nonfree 0300
 
 sudo pacman -S clang
 sudo pacman -S ninja
