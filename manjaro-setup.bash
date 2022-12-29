@@ -1,5 +1,4 @@
-read -p "Fastrack mirrors? [y/*]" yn
-
+read -p "Pacman: Fastrack mirrors? [y/*]" yn
 case $yn in
 	[y] )
 		sudo pacman-mirrors --fasttrack
@@ -34,10 +33,27 @@ git config --global init.defaultBranch main
 git config --global pull.rebase true
 
 # copy defaults to vscode
-cp settings.json "${HOME}/.config/Code - OSS/User/settings.json"
+read -p "VSCode: install settings.json? [y/*]" yn
+case $yn in
+	[y] )
+		cp settings.json "${HOME}/.config/Code - OSS/User/settings.json"
+		;;
+	* )
+		;;
+esac
 
-read -p "Append davidw.bashrc to .bashrc? [y/*]" yn
+# install nvim default?
+read -p "NeoVim: install init.vim? [y/*]" yn
+case $yn in
+	[y] )
+		mkdir -p "${HOME}/.config/nvim" && cp "${HOME}/system/config/nvim/init.vim" "${HOME}/.config/nvim/init.vim"
+		;;
+	* )
+		;;
+esac
 
+# append source line to .bashrc
+read -p "BashRC: append davidw.bashrc to .bashrc? [y/*]" yn
 case $yn in
 	[y] )
 		echo "source ${HOME}/system/davidw.bashrc" >> "${HOME}/.bashrc"
