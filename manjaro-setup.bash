@@ -7,6 +7,7 @@ case $yn in
 		;;
 esac
 
+
 read -p "Pacman: Update? [y/*]" yn
 case $yn in
 	[y] )
@@ -16,29 +17,82 @@ case $yn in
 		;;
 esac
 
-# install vscode from AUR
-read -p "VSCode: install from AUR? [y/*]" yn
+
+# install useful packages
+read -p "pacman: install useful packages?" yn
 case $yn in
 	[y] )
-		"${HOME}/system/vscode-install.bash"
+		# install nonfree graphics drivers.
+		sudo mhwd -a pci nonfree 0300
+		
+		sudo pacman -S \
+		clang \
+		ninja \
+		gdb \
+		make \
+		cmake \
+		neovim \
+		python-pip \
+		python-poetry \
+		syncthing
 		;;
 	* )
 		;;
 esac
 
+
+# start syncthing on startup
+read -p "syncthing: enable service?" yn
+case $yn in
+	[y] )
+		systemctl --user enable syncthing.service
+		systemctl --user start syncthing.service
+		;;
+	* )
+		;;
+esac
+
+
+# git config
+read -p "git: configure username/email/pull strategy?" yn
+case $yn in
+	[y] )
+		git config --global user.name "David Walker"
+		git config --global user.email "dwalker0044@gmail.com"
+		git config --global init.defaultBranch main
+		git config --global pull.rebase true
+		;;
+	* )
+		;;
+esac
+
+
+# install the official binary version of vscode (has more features than the app store version)
+read -p "VSCode: install official binary from AUR?" yn
+case $yn in
+	[y] )
+		git clone https://aur.archlinux.org/visual-studio-code-bin.git
+		pushd visual-studio-code-bin
+			mkpkg -si
+		popd
+		;;
+	* )
+		;;
+esac
+
+
 # copy defaults to vscode
-# TODO(DW): would be better to install an symlink back to this file.
 read -p "VSCode: install settings.json? [y/*]" yn
 case $yn in
 	[y] )
-		cp "${HOME}/system/vscode-settings.json" "${HOME}/.config/Code/User/settings.json"
+		cp settings.json "${HOME}/.config/Code - OSS/User/settings.json"
 		;;
 	* )
 		;;
 esac
 
+
 # install nvim default?
-# TODO(DW): would be better to install an symlink back to this file.
 read -p "NeoVim: install init.vim? [y/*]" yn
 case $yn in
 	[y] )
@@ -47,6 +101,7 @@ case $yn in
 	* )
 		;;
 esac
+
 
 # append source line to .bashrc
 read -p "BashRC: append davidw.bashrc to .bashrc? [y/*]" yn
@@ -58,35 +113,21 @@ case $yn in
 		;;
 esac
 
-# install useful packages
-read -p "Install useful packages and configurations? [y/*]" yn
+
+# build zig from source
+read -p "Zig: build from source? [y/*]" yn
 case $yn in
 	[y] )
+		git clone git@github.com:ziglang/zig.git
+		pushd zig
+			mkdir build
+			pushd build
+				cmake -DCMAKE_BUILD_TYPE=Release ..
+				make install
+		  popd
+		popd
 		;;
 	* )
-		exit
 		;;
 esac
 
-# install nonfree graphics drivers.
-sudo mhwd -a pci nonfree 0300
-
-sudo pacman -S \
-clang \
-ninja \
-gdb \
-make \
-neovim \
-python-pip \
-python-poetry \
-syncthing
-
-# start syncthing on startup
-systemctl --user enable syncthing.service
-systemctl --user start syncthing.service
-
-# git config
-git config --global user.name "David Walker"
-git config --global user.email "dwalker0044@gmail.com"
-git config --global init.defaultBranch main
-git config --global pull.rebase true

@@ -1,2 +1,4 @@
 config/nvim/plugged
 .idea
+zig
+visual-studio-code-bin
