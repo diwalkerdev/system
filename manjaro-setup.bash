@@ -73,7 +73,7 @@ case $yn in
 	[y] )
 		git clone https://aur.archlinux.org/visual-studio-code-bin.git
 		pushd visual-studio-code-bin
-			mkpkg -si
+			makepkg -si
 		popd
 		;;
 	* )
