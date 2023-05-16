@@ -18,6 +18,17 @@ case $yn in
 esac
 
 
+# append source line to .bashrc
+read -p "BashRC: append davidw.bashrc to .bashrc? [y/*]" yn
+case $yn in
+	[y] )
+		echo "source ${HOME}/system/davidw.bashrc" >> "${HOME}/.bashrc"
+		;;
+	* )
+		;;
+esac
+
+
 # install useful packages
 read -p "pacman: install useful packages?" yn
 case $yn in
@@ -34,7 +45,8 @@ case $yn in
 		neovim \
 		python-pip \
 		python-poetry \
-		syncthing
+		syncthing \
+		helix
 		;;
 	* )
 		;;
@@ -85,29 +97,32 @@ esac
 read -p "VSCode: install settings.json? [y/*]" yn
 case $yn in
 	[y] )
-		cp settings.json "${HOME}/.config/Code - OSS/User/settings.json"
+		mkdir -p "${HOME}/.config/Code - OSS/User"
+		ln -s "${HOME}/system/config/vscode/settings.json" "${HOME}/.config/Code - OSS/User/settings.json"
 		;;
 	* )
 		;;
 esac
 
 
-# install nvim default?
+# install nvim default
 read -p "NeoVim: install init.vim? [y/*]" yn
 case $yn in
 	[y] )
-		mkdir -p "${HOME}/.config/nvim" && cp "${HOME}/system/config/nvim/init.vim" "${HOME}/.config/nvim/init.vim"
+		mkdir -p "${HOME}/.config/nvim"
+	  ln -s "${HOME}/system/config/nvim/init.vim" "${HOME}/.config/nvim/init.vim"
 		;;
 	* )
 		;;
 esac
 
 
-# append source line to .bashrc
-read -p "BashRC: append davidw.bashrc to .bashrc? [y/*]" yn
+# install helix
+read -p "Helix: install config.toml? [y/*]" yn
 case $yn in
 	[y] )
-		echo "source ${HOME}/system/davidw.bashrc" >> "${HOME}/.bashrc"
+		mkdir -p "${HOME}/.config/helix"
+	  ln -s "${HOME}/system/config/helix/config.toml" "${HOME}/.config/helix/config.toml"
 		;;
 	* )
 		;;
