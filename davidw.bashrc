@@ -17,3 +17,6 @@ source "${SYSTEM_SCRIPTS}/jd.bash"
 # aliases
 alias vim="nvim"
 alias hx="helix"
+
+# Jump to current project
+jd n

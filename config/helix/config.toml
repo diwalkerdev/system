@@ -4,3 +4,15 @@ theme = "ayu_dark"
 insert = "bar"
 normal = "block"
 select = "underline"
+
+[keys.normal]
+C-o = ":open ~/.config/helix/config.toml"
+A-s = ":w"
+
+[keys.insert]
+A-n = "normal_mode"
+
+[keys.normal."A-/"]
+b = ":run-shell-command ./build.sh"
+r = ":run-shell-command ./run.sh"
+e = ":run-shell-command ./emit-test.sh"
