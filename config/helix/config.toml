@@ -1,18 +1,51 @@
-theme = "ayu_dark"
+theme = "adwaita-dark"
+
+[editor]
+# line-number = "relative"
+auto-pairs = false
+cursorline = true
+# rulers = [40]
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
 
+[editor.file-picker]
+git-ignore = true
+
+[editor.statusline]
+# left = ["mode", "spinner", "version-control", "file-name"]
+                                                           # Adds version-control
+right = ["diagnostics", "selections", "position", "file-encoding", "version-control", ]
+
 [keys.normal]
-C-o = ":open ~/.config/helix/config.toml"
+A-h = ":config-open"
+A-r = ":config-reload"
 A-s = ":w"
+"A-," = "goto_previous_buffer"
+"A-." = "goto_next_buffer"
+"A-w" = ":buffer-close"
+
+";" = "repeat_last_motion"
+                                                          # Select word for searching
+"*" = ["select_mode", "move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection"]
+C-k = ["select_mode", "move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection"]
+
+C-j = "save_selection"                                     # Frees Ctrl-s. Reminder: ctrl-i jump forward, ctrl-o jump backward.
+C-s = ":w"
+X = ["extend_line_up", "extend_to_line_bounds"]            # Shrink line selection.
+# A-x = "extend_to_line_bounds" # I don't know what this does.
 
 [keys.insert]
-A-n = "normal_mode"
+C-n = ["normal_mode", ":w"]
+A-s = ["normal_mode", ":w"]
 
-[keys.normal."A-/"]
-b = ":run-shell-command ./build.sh"
-r = ":run-shell-command ./run.sh"
-e = ":run-shell-command ./emit-test.sh"
+[keys.select]
+C-n = ["normal_mode", ":w"]
+X = ["extend_line_up", "extend_to_line_bounds"]            # Shrink line selection.
+
+# [keys.normal."A-/"]
+# b = ":run-shell-command ./build.sh"
+# r = ":run-shell-command ./run.sh"
+# e = ":run-shell-command ./emit-test.sh"
