@@ -4,7 +4,7 @@ theme = "adwaita-dark"
 # line-number = "relative"
 auto-pairs = false
 cursorline = true
-# rulers = [40]
+rulers = [80, 120]
 
 [editor.cursor-shape]
 insert = "bar"
@@ -29,23 +29,27 @@ A-s = ":w"
 
 ";" = "repeat_last_motion"
                                                           # Select word for searching
-"*" = ["select_mode", "move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection"]
-C-k = ["select_mode", "move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection"]
+# "*" = ["select_mode", "move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection"]
+# C-k = ["select_mode", "move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection"]
+# "*" = ["move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection"]
+# C-k = ["move_char_right", "move_prev_word_start", "move_next_word_start", "search_selection"]
 
 C-j = "save_selection"                                     # Frees Ctrl-s. Reminder: ctrl-i jump forward, ctrl-o jump backward.
 C-s = ":w"
-X = ["extend_line_up", "extend_to_line_bounds"]            # Shrink line selection.
+# X = ["extend_line_up", "extend_to_line_bounds"]            # Shrink line selection.
 # A-x = "extend_to_line_bounds" # I don't know what this does.
 
 [keys.insert]
 C-n = ["normal_mode", ":w"]
+C-space = ["normal_mode", ":w"]
 A-s = ["normal_mode", ":w"]
 
 [keys.select]
 C-n = ["normal_mode", ":w"]
-X = ["extend_line_up", "extend_to_line_bounds"]            # Shrink line selection.
+# X = ["extend_line_up", "extend_to_line_bounds"]            # Shrink line selection.
 
 # [keys.normal."A-/"]
 # b = ":run-shell-command ./build.sh"
 # r = ":run-shell-command ./run.sh"
 # e = ":run-shell-command ./emit-test.sh"
+# TODO(): got to line col 119, create new line, join line.
