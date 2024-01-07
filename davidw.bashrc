@@ -1,9 +1,9 @@
 # Source this file at the end of .zshrc and .bashrc.
-# source "${USER}/system/davidw.bashrc"
+# source "${USER}/System/davidw.bashrc"
 
 # environment variables
 EDITOR=helix
-SYSTEM_SCRIPTS=/home/$USER/system/scripts
+SYSTEM_SCRIPTS=/home/$USER/System/scripts
 LSAN_OPTIONS=verbosity=1:log_threads=1
 
 # emscripten
@@ -20,4 +20,4 @@ alias vim="nvim"
 alias hx="helix"
 
 # Jump to current project
-jd n
+# jd n

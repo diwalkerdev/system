@@ -22,7 +22,7 @@ esac
 read -p "BashRC: append davidw.bashrc to .bashrc? [y/*]" yn
 case $yn in
 	[y] )
-		echo "source ${HOME}/system/davidw.bashrc" >> "${HOME}/.bashrc"
+		echo "source ${HOME}/System/davidw.bashrc" >> "${HOME}/.bashrc"
 		;;
 	* )
 		;;
@@ -46,7 +46,10 @@ case $yn in
 		python-pip \
 		python-poetry \
 		syncthing \
-		helix
+		helix \
+		audacity \
+		blender \
+		obs-studio
 		;;
 	* )
 		;;
@@ -83,10 +86,7 @@ esac
 read -p "VSCode: install official binary from AUR?" yn
 case $yn in
 	[y] )
-		git clone https://aur.archlinux.org/visual-studio-code-bin.git
-		pushd visual-studio-code-bin
-			makepkg -si
-		popd
+		yay install -S visual-studio-code-bin
 		;;
 	* )
 		;;
@@ -128,21 +128,4 @@ case $yn in
 		;;
 esac
 
-
-# build zig from source
-read -p "Zig: build from source? [y/*]" yn
-case $yn in
-	[y] )
-		git clone git@github.com:ziglang/zig.git
-		pushd zig
-			mkdir build
-			pushd build
-				cmake -DCMAKE_BUILD_TYPE=Release ..
-				make install
-		  popd
-		popd
-		;;
-	* )
-		;;
-esac
 

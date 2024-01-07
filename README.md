@@ -11,13 +11,13 @@ ssh-keygen -t ed25519
 # go to gitlab.com and add the key
 
 # clone the project
-git clone git@github.com:diwalkerdev/system.git
+git clone git@github.com:diwalkerdev/system.git System
 ```
 
 Install the default programs and applications:
 ```
 # run the setup script:
-sudo chmod +x manjaro-setup.bash
+sudo chmod +x setup.bash
 ./manjaro-setup.bash
 ```
 
