@@ -1,0 +1,121 @@
+keymap:
+  - name: Global
+    remap:
+      Alt-q: SHIFT-KEY_SLASH             # question mark
+      Alt-w: SHIFT-KEY_COMMA             # less than
+      Alt-e: KEY_EQUAL                   # equals
+      Alt-r: SHIFT-KEY_DOT               # greater than
+      Alt-t: SHIFT-KEY_9                 # (
+      Alt-y: SHIFT-KEY_0                 # )
+      Shift-Alt-t: SHIFT-KEY_LEFTBRACE   # {
+      Shift-Alt-y: SHIFT-KEY_RIGHTBRACE  # }
+
+      Alt-a: SHIFT-KEY_APOSTROPHE        # at
+      Shift-Alt-a: SHIFT-KEY_7           # and
+      Alt-s: KEY_LEFTBRACE               # [
+      Alt-d: KEY_RIGHTBRACE              # ]
+
+      Alt-u: SHIFT-KEY_MINUS             # underscore
+      Shift-Alt-u: SHIFT-KEY_BACKSLASH   # underscore
+      Alt-i: KEY_MINUS                   # minus
+      Alt-o: SHIFT-EQUAL                 # plus
+      Alt-p: KEY_BACKSLASH               # hashtag
+      Shift-Alt-p: Shift-KEY_102ND       # pipe
+
+      Alt-g: KEY_SPACE
+      Ctrl-g: KEY_ESC
+      # Ctrl-h: KEY_BACKSPACE # potential clash, leave for vim insert mode only.
+
+      Alt-h: KEY_DOT                     # dot
+      Alt-j: KEY_COMMA                   # comma
+      Alt-k: KEY_SLASH                   # forward slash
+      Shift-Alt-k: KEY_102ND             # backwards slash
+
+      Alt-z: Shift-KEY_1                 # !
+      Alt-x: Shift-KEY_2                 # "
+      Shift-Alt-x: KEY_APOSTROPHE        # '
+      Alt-c: KEY_GRAVE                   # `
+      Alt-Shift-c: Shift-KEY_GRAVE       # ¬
+      Alt-v: Shift-KEY_6                 # ^
+      Alt-v: Shift-KEY_5                 # ^
+      Alt-b: Shift-KEY_4                 # $
+      Shift-Alt-b: Shift-KEY_3           # £
+      Alt-n: KEY_ENTER                   # <enter>
+      Alt-m: Shift-KEY_8                 # *
+modmap:
+  - name: Global
+    remap:
+      # Disable crampy or distant
+      KEY_LEFTALT: ESC
+      KEY_LEFTCTRL: ESC
+      KEY_LEFTSHIFT: ESC
+      KEY_RIGHTSHIFT: ESC
+      # KEY_ENTER: ESC # Need a dedicated key as ctrl+something can register as two keys (such as in vscode)
+      # KEY_BACKSPACE: ESC # Useful
+      # KEY_TAB: ESC # Useful
+      KEY_CAPSLOCK: ESC
+
+      # KEY_TAB:
+      #   held: KEY_LEFTCTRL
+      #   alone: KEY_TAB
+      #   alone_timeout_millis: 150
+      # KEY_CAPSLOCK:
+      #   held: KEY_LEFTSHIFT
+      #   alone: KEY_ESC
+      #   alone_timeout_millis: 150
+      # KEY_SPACE:
+      #   held: KEY_ENTER
+      #   alone: KEY_SPACE
+      #   alone_timeout_millis: 200
+
+      # Left home mod
+      KEY_A:
+        held: KEY_LEFTALT
+        alone: KEY_A
+        alone_timeout_millis: 200
+      KEY_S:
+        held: KEY_LEFTSHIFT
+        alone: KEY_S
+        alone_timeout_millis: 200
+      KEY_D:
+        held: KEY_LEFTCTRL
+        alone: KEY_D
+        alone_timeout_millis: 200
+
+      KEY_G:
+        held: KEY_ESC
+        alone: KEY_G
+        alone_timeout_millis: 200
+
+      # Right home mod
+      KEY_H:
+        held: KEY_RIGHTCTRL
+        alone: KEY_H
+        alone_timeout_millis: 250
+      KEY_J:
+        held: KEY_RIGHTSHIFT
+        alone: KEY_J
+        alone_timeout_millis: 250
+      KEY_K:
+        held: KEY_LEFTALT
+        alone: KEY_K
+        alone_timeout_millis: 250
+
+      # Minimise shift
+      KEY_SEMICOLON:
+        held: [KEY_LEFTSHIFT, KEY_SEMICOLON]
+        alone: KEY_SEMICOLON
+        alone_timeout_millis: 300
+      KEY_LEFTBRACE:
+        held: [KEY_LEFTSHIFT, KEY_LEFTBRACE]
+        alone: KEY_LEFTBRACE
+        alone_timeout_millis: 300
+      KEY_9:
+        held: [KEY_LEFTSHIFT, KEY_9]
+        alone: KEY_9
+        alone_timeout_millis: 300
+      KEY_0:
+        held: [KEY_LEFTSHIFT, KEY_0]
+        alone: KEY_0
+        alone_timeout_millis: 300
+
